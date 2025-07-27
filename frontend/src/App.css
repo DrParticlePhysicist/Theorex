@@ -1,0 +1,223 @@
+/* ===== Base styles for body ===== */
+body {
+    background-color: #000;
+    background-image: url('./assets/Rosette_Nebula.jpg'),
+                      radial-gradient(circle at 20% 30%, rgba(0, 200, 50, 0.15) 10%, transparent 40%),
+                      radial-gradient(circle at 80% 70%, rgba(140, 255, 100, 0.1) 10%, transparent 40%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ccffcc;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* ✅ Perfectly center vertically */
+    align-items: center;     /* ✅ Perfectly center horizontally */
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ===== React root unnamed wrapper fix ===== */
+#root > div {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal resize */
+    overflow-y: auto;   /* Vertical scroll only */
+}
+
+/* ===== Theorex Logo ===== */
+.logo {
+    width: clamp(300px, 40vw, 600px); /* 🔥 Make logo bigger */
+    display: block;
+    margin-bottom: 30px; /* Space below logo */
+}
+
+.logo-top {
+    width: 120px;
+    margin: 20px auto;
+}
+
+.logo {
+    margin-top: calc(20vh); /* Center vertically */
+}
+
+/* ===== Chat wrapper ===== */
+.chat-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Vertical scroll */
+    overflow-x: hidden; /* 🔥 Prevent horizontal scroll */
+}
+
+/* Chat messages container */
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 0px; /* Invisible scrollbar */
+}
+.chat-messages {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* User messages */
+.query-box {
+    align-self: flex-end;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ccffcc;
+    padding: 10px 15px;
+    border-radius: 15px;
+    width: fit-content;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-family: sans-serif;
+}
+
+/* AI messages */
+.answer-box {
+    align-self: flex-start;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-family: 'Permanent Marker', cursive;
+    padding: 10px 15px;
+    border-radius: 15px;
+    width: fit-content;
+    max-width: 70%;
+    word-wrap: break-word;
+    box-shadow: 0 0 15px #8cff00 inset;
+}
+
+/* ===== Query bar fixed at bottom ===== */
+.query-bar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(300px, 90%, 800px); /* Original width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    backdrop-filter: blur(8px);
+    z-index: 20;
+}
+
+/* Query input field */
+.query-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px;
+    outline: none;
+}
+
+.query-input::placeholder {
+    color: #ccc;
+}
+
+/* ===== Upload button ===== */
+.upload-btn {
+    background-color: #556b2f; /* Olive green */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #6b8e23;
+    box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00 inset;
+}
+
+/* ===== Ask button ===== */
+.ask-btn {
+    background-color: #556b2f;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.ask-btn:disabled {
+    background-color: #3a4b1f;
+    cursor: not-allowed;
+}
+
+.ask-btn:hover {
+    background-color: #6b8e23;
+}
+
+/* ===== Action buttons (reset, new doc) ===== */
+.action-btn {
+    background-color: #556b2f;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #6b8e23;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    background-color: transparent; /* 🔥 Transparent background */
+    color: #ccffcc; /* Soft lime text for visibility */
+    padding: 12px 24px;
+    border: 2px dashed #556b2f; /* Add a dashed border for visibility */
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: rgba(85, 107, 47, 0.2); /* Slight highlight on hover */
+    border-color: #6b8e23; /* Lighter olive border */
+}
