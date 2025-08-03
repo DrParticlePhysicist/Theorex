@@ -163,7 +163,6 @@ HUGGINGFACEHUB_API_TOKEN=your_openai_api_key
 
 - Multi-document support
 - Auth and user sessions
-- Dockerize frontend and backend
 
 ---
 
