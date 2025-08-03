@@ -19,3 +19,7 @@ def extract_text(filename: str, content: bytes) -> str:
 
     else:
         return ""
+
+def chunks_merger(chunks) :
+    merged_chunks = "\n\n".join(chunk.page_content for chunk in chunks)
+    return merged_chunks
